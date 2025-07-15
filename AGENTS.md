@@ -38,7 +38,7 @@ GNews-specific DTOs, parameters, quota details, and response quirks stay behind 
 - Offline users may browse and optionally search bookmarks, but cannot search the remote news catalogue.
 - Bookmarks are durable, independent of feed-cache maintenance, and contain enough metadata to render article detail offline.
 - One native article-detail destination serves both online and offline states.
-- “Read original” is network-dependent and should prefer Custom Tabs unless a WebView is explicitly required. “Open in browser” uses the external browser. Share uses the Android share sheet.
+  - Read original opens the article in the app native WebView. Open in browser opens the system default external browser. Share uses the Android share sheet.
 - Connectivity status is advisory. Actual request or open failures are authoritative.
 
 ## Technology baseline

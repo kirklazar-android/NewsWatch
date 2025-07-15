@@ -34,7 +34,7 @@ Fixed decisions:
 - Startup feed retention is 150 articles.
 - Feed refresh becomes due after 30 minutes.
 - Local bookmark search is included.
-- Custom Tabs is preferred, with browser fallback.
+- Read original uses the in-app WebView; Open in browser uses the external default browser.
 
 ## Current implementation state
 
