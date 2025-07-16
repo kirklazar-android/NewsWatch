@@ -23,13 +23,21 @@ class HomeNewsRepository(
     private val database: NewsDatabase,
 ) : NewsRepository {
     override fun observeFeed(request: FeedRequest): Flow<PagingData<Article>> = Pager(
-        config = PagingConfig(pageSize = GNewsConfig.FREE_PLAN_PAGE_SIZE, enablePlaceholders = false),
+        config = PagingConfig(
+            pageSize = GNewsConfig.FREE_PLAN_PAGE_SIZE,
+            prefetchDistance = 2,
+            enablePlaceholders = false,
+        ),
         remoteMediator = NewsRemoteMediator(request, api, database),
         pagingSourceFactory = { database.cachedArticleDao().pagingSource() },
     ).flow.map { pagingData -> pagingData.map { entity -> entity.toDomain() } }
 
     override fun search(query: String, request: FeedRequest): Flow<PagingData<Article>> = Pager(
-        config = PagingConfig(pageSize = GNewsConfig.FREE_PLAN_PAGE_SIZE, enablePlaceholders = false),
+        config = PagingConfig(
+            pageSize = GNewsConfig.FREE_PLAN_PAGE_SIZE,
+            prefetchDistance = 2,
+            enablePlaceholders = false,
+        ),
         pagingSourceFactory = { NewsSearchPagingSource(api, query.trim(), request) },
     ).flow
 
