@@ -271,7 +271,6 @@ private fun PagingArticleList(
             refresh is LoadState.Loading && items.itemCount == 0 -> LoadingMessage()
             refresh is LoadState.Error && items.itemCount == 0 -> ErrorMessage(
                 "Could not load content.",
-                refresh.error,
                 items::retry
             )
 
@@ -362,17 +361,21 @@ private fun LoadingMessage(text: String = "Loading�") {
 }
 
 @Composable
-private fun ErrorMessage(message: String, error: Throwable, retry: () -> Unit) {
+private fun ErrorMessage(message: String, retry: () -> Unit) {
     Card(
         Modifier
             .fillMaxWidth()
             .padding(16.dp)
     ) {
         Column(Modifier.padding(16.dp)) {
-            Text(message); Text(
-            error.message ?: "Please try again.",
-            style = MaterialTheme.typography.bodySmall
-        ); Button(onClick = retry, modifier = Modifier.padding(top = 8.dp)) { Text("Retry") }
+            Text(message)
+            Text(
+                "Please check your connection and try again.",
+                style = MaterialTheme.typography.bodySmall
+            )
+            Button(onClick = retry, modifier = Modifier.padding(top = 8.dp)) {
+                Text("Retry")
+            }
         }
     }
 }

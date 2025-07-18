@@ -73,9 +73,9 @@ Status: Complete â€” 2026-07-24
 
 Completion gate: core, data, and feature tests pass for debug/release; bookmarks remain independent of feed maintenance and article actions fail safely.
 
-## Phase 6 — Remote search
+## Phase 6 ï¿½ Remote search
 
-Status: Complete — 2026-07-24
+Status: Complete ï¿½ 2026-07-24
 
 - [x] Implemented network-only GNews search PagingSource; search results are not persisted.
 - [x] Query processing trims/normalizes, enforces minimum length 2, debounces 300 ms, deduplicates, cancels obsolete searches, and gates remote search while offline.
@@ -83,9 +83,9 @@ Status: Complete — 2026-07-24
 
 Completion gate: :core:test, :data:test, :feature-news:test, :data:assembleDebug, and :feature-news:assembleDebug passed.
 
-## Phase 7 — Presentation and navigation
+## Phase 7 ï¿½ Presentation and navigation
 
-Status: Complete — 2026-07-24
+Status: Complete ï¿½ 2026-07-24
 
 - [x] Wired Home, Search, Bookmarks, and native Detail Compose destinations through Navigation Compose.
 - [x] Wired app-level Hilt repositories into feature ViewModels and UI flows.
@@ -97,10 +97,11 @@ Completion gate: :core:test, :data:test, :feature-news:test, :app:testDebugUnitT
 
 ## Phase 8 â€” Hardening and documentation
 
-Status: Pending
+Status: In progress â€” 2026-07-25
 
-- [ ] Validate process restart, quota-aware retries, credential safety, logging, image caching, release build, and demo scenarios.
-- [ ] Complete README architecture, setup, offline behavior, limitations, and test documentation.
+- [x] Release build, credential injection, authentication/quota classification, and raw-error log/UI safety validated.
+- [x] README architecture, setup, offline behavior, limitations, and test documentation completed.
+- [ ] Validate process restart, bounded image-cache behavior, and end-to-end demo scenarios on a device/emulator.
 
 Completion gate: full acceptance matrix passes from a clean checkout and no governed rule has changed without an explicit decision record.
 

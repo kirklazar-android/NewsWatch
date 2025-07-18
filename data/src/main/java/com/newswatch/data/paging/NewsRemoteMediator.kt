@@ -27,6 +27,7 @@ class NewsRemoteMediator(
     private val nowMillis: () -> Long = { System.currentTimeMillis() },
 ) : RemoteMediator<Int, CachedArticleEntity>() {
     override suspend fun initialize(): InitializeAction {
+        database.trimFeed()
         val metadata = database.feedMetadataDao().get()
         val cacheCount = database.cachedArticleDao().count()
         val refreshIsFresh = metadata?.requestKey == request.key &&

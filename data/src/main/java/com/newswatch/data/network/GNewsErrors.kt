@@ -9,6 +9,7 @@ import java.net.SocketTimeoutException
 fun Throwable.toNewsError(): NewsError = when (this) {
     is SocketTimeoutException, is IOException -> NewsError.Network
     is HttpException -> when (code()) {
+        401, 403 -> NewsError.Authentication
         429 -> NewsError.Quota
         else -> NewsError.Http(code())
     }

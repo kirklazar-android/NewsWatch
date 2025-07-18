@@ -15,7 +15,9 @@ val localProperties = Properties().apply {
 }
 
 val localGNewsApiKey = localProperties
-    .getProperty("GNEWS_API_KEY", "")
+    .getProperty("GNEWS_API_KEY")
+    ?: System.getenv("GNEWS_API_KEY")
+    ?: ""
     .replace("\\", "\\\\")
     .replace("\"", "\\\"")
 

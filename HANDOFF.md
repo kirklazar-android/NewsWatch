@@ -96,12 +96,12 @@ Top-headlines live smoke passed with 10 returned articles. Search reached GNews 
 - Treat GNews development access as approximately 100 requests/day, 10 articles/request, delayed news, and development-only usage.
 - Prefer MockWebServer tests to preserve quota.
 - Release builds currently receive an empty GNews key to avoid embedding a development credential.
-- The repository has no commits yet; all project files currently appear untracked.
+- Git history now contains phase-oriented commits through the Phase 7 UI and paging fixes.
 - Build outputs and local configuration must remain ignored.
 
 ## Next implementation action
 
-Phase 7 is complete. Start Phase 8 next: hardening, process-restart/offline validation, release checks, and final documentation.
+Phase 8 hardening is in progress. The clean test/lint/release gate passes; remaining work is manual process-restart/offline/demo validation before final acceptance.
 
 Phase 1 live search smoke remains rate-limited by GNews HTTP 429 and should be retried only after quota reset.
 

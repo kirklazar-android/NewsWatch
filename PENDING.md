@@ -9,8 +9,8 @@ Current state:
 - Phase 3: complete; Room persistence and bookmark tests pass.
 - Phase 4: complete; Room-backed home paging and RemoteMediator tests pass.
 - Phase 5: complete; bookmark use cases, offline lookup, and article actions are tested.
-- Phase 6: complete — remote search PagingSource and query processing are implemented and verified.
-- Phase 7: complete — presentation, navigation, Paging states, fallbacks, and accessibility semantics are implemented and verified.
-- Phase 8: pending.
+- Phase 6: complete ï¿½ remote search PagingSource and query processing are implemented and verified.
+- Phase 7: complete ï¿½ presentation, navigation, Paging states, fallbacks, and accessibility semantics are implemented and verified.
+- Phase 8: in progress â€” implementation hardening, release verification, and documentation are complete; manual process-restart/offline/demo validation remains.
 
 

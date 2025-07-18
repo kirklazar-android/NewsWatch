@@ -74,6 +74,11 @@ class GNewsContractTest {
     @Test(expected = IllegalArgumentException::class)
     fun `article mapper rejects blank URL`() { GNewsArticle(title = "A", url = "").toDomain() }
 
+    @Test fun `authentication failures are classified separately`() {
+        val body = "{}".toResponseBody("application/json".toMediaType())
+        assertEquals(NewsError.Authentication, HttpException(Response.error<Any>(401, body)).toNewsError())
+        assertEquals(NewsError.Authentication, HttpException(Response.error<Any>(403, body)).toNewsError())
+    }
     @Test fun `quota is classified separately`() {
         val body = "{}".toResponseBody("application/json".toMediaType())
         val failure = HttpException(Response.error<Any>(429, body))
